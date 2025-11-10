@@ -1,0 +1,111 @@
+package data;
+
+import modelos.cursos.Evaluacion;
+import modelos.cursos.Modulo;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class GestorBDDModulo {
+    private Connection conn;
+    
+    private GestorBDDEvaluacion gestorEvaluacion;
+    public GestorBDDModulo() {
+        try {
+            conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/plataforma_cursos", 
+                    "root", 
+                    "mysql" 
+            );
+        } catch (SQLException e) {
+            System.err.println("❌ Error al conectar con la BDD (Módulo): " + e.getMessage());
+        }
+        this.gestorEvaluacion = new GestorBDDEvaluacion();
+    }
+
+    public Modulo guardar(Modulo modulo, int idCurso) {
+        String sql = "INSERT INTO modulo (idCurso, titulo, contenido) VALUES (?, ?, ?)";
+        
+        try (PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            ps.setInt(1, idCurso);
+            ps.setString(2, modulo.getTitulo());
+            ps.setString(3, modulo.getContenido());
+            
+            ps.executeUpdate();
+            
+            // Sincronizar el ID de la BDD
+            try (ResultSet rs = ps.getGeneratedKeys()) {
+                if (rs.next()) {
+                    int idGenerado = rs.getInt(1);
+                    modulo.setIdModulo(idGenerado); 
+                }
+            }
+            System.out.println("💾 Módulo '" + modulo.getTitulo() + "' guardado correctamente.");
+
+        } catch (SQLException e) {
+            System.err.println("❌ Error al guardar módulo: " + e.getMessage());
+        }
+        return modulo;
+    }
+public Modulo buscarModuloPorTituloYCurso(String titulo, int idCurso) {
+    // La consulta busca un módulo que coincida tanto en título como en idCurso
+    String sql = "SELECT idModulo, titulo, contenido FROM modulo WHERE titulo = ? AND idCurso = ?";
+    
+    try (PreparedStatement ps = conn.prepareStatement(sql)) {
+        ps.setString(1, titulo);
+        ps.setInt(2, idCurso);
+        
+        try (ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                // Reconstruir el objeto Modulo si se encuentra
+                Modulo modulo = new Modulo(
+                    rs.getString("titulo"),
+                    rs.getString("contenido")
+                );
+                // Sincronizar el ID de la BDD
+                modulo.setIdModulo(rs.getInt("idModulo")); 
+                return modulo;
+            }
+        }
+    } catch (SQLException e) {
+        System.err.println("❌ Error al buscar módulo por título y curso: " + e.getMessage());
+    }
+    return null;
+}
+
+public List<Modulo> obtenerModulosPorCurso(int idCurso) {
+        List<Modulo> modulos = new ArrayList<>();
+        String sql = "SELECT idModulo, titulo, contenido FROM modulo WHERE idCurso = ?";
+        
+       try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            
+            ps.setInt(1, idCurso);
+            
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    int idModulo = rs.getInt("idModulo");
+                    
+                    // 1. Reconstruir el objeto Modulo
+                    Modulo modulo = new Modulo(
+                        rs.getString("titulo"),
+                        rs.getString("contenido")
+                    );
+                    modulo.setIdModulo(idModulo); 
+                    
+                    // 2. Obtener las Evaluaciones asociadas a este Módulo
+                    List<Evaluacion> evaluaciones = gestorEvaluacion.obtenerEvaluacionesPorModulo(idModulo);
+                    
+                    // 3. Agregar las Evaluaciones al objeto Modulo
+                    for (Evaluacion e : evaluaciones) {
+                        modulo.agregarEvaluacion(e); 
+                    }
+
+                    modulos.add(modulo);
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("❌ Error al obtener módulos por curso: " + e.getMessage());
+        }
+        return modulos;
+    }
+}
