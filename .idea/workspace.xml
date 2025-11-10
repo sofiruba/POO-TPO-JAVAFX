@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9d00dc58-06da-41c7-ae90-acae37aa89cf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/data/GestorArchivoCursos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/POO TPO - Despues te digo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/POO TPO - Despues te digo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/CursosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/CursosController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/UsuariosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/UsuariosController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelos/cursos/Evaluacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelos/cursos/Evaluacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelos/usuario/Alumno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelos/usuario/Alumno.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Exception" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="356PD5D14LJQuiiXXoepvkBzRt6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AppPlataformaCursos.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Prueba.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/USUARIO/IdeaProjects/POO TPO - Despues te digo/POO-Trabajo-Practico-Integrador/lib&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/USUARIO/IdeaProjects/POO TPO - Despues te digo/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\USUARIO\IdeaProjects\POO TPO - Despues te digo\POO-Trabajo-Practico-Integrador\lib" />
+      <recent name="C:\Users\USUARIO\IdeaProjects\POO TPO - Despues te digo\POO-Trabajo-Practico-Integrador\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\USUARIO\IdeaProjects\POO TPO - Despues te digo\POO-Trabajo-Practico-Integrador\src\controller" />
+      <recent name="C:\Users\USUARIO\IdeaProjects\POO TPO - Despues te digo\POO-Trabajo-Practico-Integrador\src\user" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.AppPlataformaCursos">
+    <configuration name="AppPlataformaCursos" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="AppPlataformaCursos" />
+      <module name="POO TPO - Despues te digo" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\USUARIO\Downloads\POO-Trabajo-Practico-Integrador\POO-Trabajo-Practico-Integrador\javafx-sdk-21.0.9\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Prueba" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Prueba" />
+      <module name="POO TPO - Despues te digo" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.AppPlataformaCursos" />
+      <item itemvalue="Application.Prueba" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AppPlataformaCursos" />
+        <item itemvalue="Application.Prueba" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9d00dc58-06da-41c7-ae90-acae37aa89cf" name="Changes" comment="" />
+      <created>1762427431153</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1762427431153</updated>
+      <workItem from="1762427432956" duration="832000" />
+      <workItem from="1762428693899" duration="8391000" />
+      <workItem from="1762460043978" duration="770000" />
+      <workItem from="1762548162099" duration="15166000" />
+      <workItem from="1762732738711" duration="4098000" />
+      <workItem from="1762737332644" duration="1713000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="vista.controladores.DocenteController" styleClass="main-container">
+    
+    <!-- Barra Superior -->
+    <top>
+        <HBox styleClass="top-bar-docente" alignment="CENTER_LEFT" spacing="10">
+            <padding>
+                <Insets top="15" right="20" bottom="15" left="20"/>
+            </padding>
+            
+            <Text text="🎓" style="-fx-font-size: 24px;"/>
+            <Label text="Portal Docente" styleClass="top-bar-title"/>
+            
+            <Region HBox.hgrow="ALWAYS"/>
+            
+            <Label fx:id="lblNombreDocente" text="Docente" styleClass="top-bar-user"/>
+            <Button text="Cerrar Sesión" onAction="#handleCerrarSesion" styleClass="btn-logout"/>
+        </HBox>
+    </top>
+    
+    <!-- Menú Lateral -->
+    <left>
+        <VBox styleClass="side-menu" spacing="5">
+            <padding>
+                <Insets top="20" right="10" bottom="20" left="10"/>
+            </padding>
+            
+            <Label text="NAVEGACIÓN" styleClass="menu-section-title">
+                <padding>
+                    <Insets bottom="10"/>
+                </padding>
+            </Label>
+            
+            <Button text="📚 Mis Cursos" onAction="#mostrarMisCursos" styleClass="menu-button" maxWidth="Infinity"/>
+            <Button text="👥 Alumnos Inscritos" onAction="#mostrarAlumnosInscritos" styleClass="menu-button" maxWidth="Infinity"/>
+            <Button text="📊 Evaluaciones" onAction="#mostrarEvaluaciones" styleClass="menu-button" maxWidth="Infinity"/>
+            
+            <Separator>
+                <VBox.margin>
+                    <Insets top="15" bottom="15"/>
+                </VBox.margin>
+            </Separator>
+            
+            <Label text="GESTIÓN" styleClass="menu-section-title">
+                <padding>
+                    <Insets bottom="10"/>
+                </padding>
+            </Label>
+            
+            <Button text="➕ Nuevo Curso" onAction="#mostrarNuevoCurso" styleClass="menu-button" maxWidth="Infinity"/>
+            <Button text="📝 Nueva Evaluación" onAction="#mostrarNuevaEvaluacion" styleClass="menu-button" maxWidth="Infinity"/>
+        </VBox>
+    </left>
+    
+    <!-- Área de Contenido Principal -->
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="content-scroll">
+            <VBox fx:id="contentArea" spacing="20" styleClass="content-area">
+                <padding>
+                    <Insets top="30" right="30" bottom="30" left="30"/>
+                </padding>
+                
+                <!-- Panel de Bienvenida -->
+                <VBox spacing="15" styleClass="card">
+                    <padding>
+                        <Insets top="25" right="25" bottom="25" left="25"/>
+                    </padding>
+                    
+                    <Label text="Bienvenido al Portal Docente" styleClass="section-title"/>
+                    <Label text="Gestiona tus cursos, alumnos y evaluaciones desde este panel." 
+                           styleClass="section-subtitle" wrapText="true"/>
+                    
+                    <HBox spacing="20" alignment="CENTER">
+                        <VBox.margin>
+                            <Insets top="15"/>
+                        </VBox.margin>
+                        
+                        <VBox alignment="CENTER" spacing="8" styleClass="stat-card">
+                            <padding>
+                                <Insets top="15" right="20" bottom="15" left="20"/>
+                            </padding>
+                            <Label text="📚" style="-fx-font-size: 28px;"/>
+                            <Label fx:id="lblTotalCursos" text="0" styleClass="stat-number"/>
+                            <Label text="Cursos" styleClass="stat-label"/>
+                        </VBox>
+                        
+                        <VBox alignment="CENTER" spacing="8" styleClass="stat-card">
+                            <padding>
+                                <Insets top="15" right="20" bottom="15" left="20"/>
+                            </padding>
+                            <Label text="👥" style="-fx-font-size: 28px;"/>
+                            <Label fx:id="lblTotalAlumnos" text="0" styleClass="stat-number"/>
+                            <Label text="Alumnos" styleClass="stat-label"/>
+                        </VBox>
+                        
+                        <VBox alignment="CENTER" spacing="8" styleClass="stat-card">
+                            <padding>
+                                <Insets top="15" right="20" bottom="15" left="20"/>
+                            </padding>
+                            <Label text="📊" style="-fx-font-size: 28px;"/>
+                            <Label fx:id="lblTotalEvaluaciones" text="0" styleClass="stat-number"/>
+                            <Label text="Evaluaciones" styleClass="stat-label"/>
+                        </VBox>
+                    </HBox>
+                </VBox>
+                
+                <!-- Tabla de Cursos -->
+                <VBox spacing="15" styleClass="card">
+                    <padding>
+                        <Insets top="25" right="25" bottom="25" left="25"/>
+                    </padding>
+                    
+                    <Label text="Mis Cursos Activos" styleClass="section-title"/>
+                    
+                    <TableView fx:id="tablaCursos" styleClass="data-table">
+                        <columns>
+                            <TableColumn fx:id="colCursoNombre" text="Curso" prefWidth="250"/>
+                            <TableColumn fx:id="colCursoModalidad" text="Modalidad" prefWidth="120"/>
+                            <TableColumn fx:id="colCursoCupos" text="Cupos" prefWidth="100"/>
+                            <TableColumn fx:id="colCursoInscritos" text="Inscritos" prefWidth="100"/>
+                            <TableColumn fx:id="colCursoPrecio" text="Precio" prefWidth="100"/>
+                            <TableColumn fx:id="colCursoAcciones" text="Acciones" prefWidth="150"/>
+                        </columns>
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                        </columnResizePolicy>
+                    </TableView>
+                </VBox>
+                
+                <!-- Tabla de Alumnos Inscritos -->
+                <VBox spacing="15" styleClass="card">
+                    <padding>
+                        <Insets top="25" right="25" bottom="25" left="25"/>
+                    </padding>
+                    
+                    <Label text="Alumnos Inscritos en Mis Cursos" styleClass="section-title"/>
+                    
+                    <TableView fx:id="tablaAlumnos" styleClass="data-table">
+                        <columns>
+                            <TableColumn fx:id="colAlumnoNombre" text="Alumno" prefWidth="200"/>
+                            <TableColumn fx:id="colAlumnoEmail" text="Email" prefWidth="200"/>
+                            <TableColumn fx:id="colAlumnoCurso" text="Curso" prefWidth="200"/>
+                            <TableColumn fx:id="colAlumnoEstado" text="Estado" prefWidth="120"/>
+                            <TableColumn fx:id="colAlumnoAcciones" text="Acciones" prefWidth="150"/>
+                        </columns>
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                        </columnResizePolicy>
+                    </TableView>
+                </VBox>
+                
+            </VBox>
+        </ScrollPane>
+    </center>
+    
+</BorderPane>
